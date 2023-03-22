@@ -7,7 +7,6 @@ describe('My test suit',function(){
         cy.wait(2000)   //2 saniye bekle
         //selenium get hit url in browser, cypress get acts like findelement of selenium
         cy.get(".product:visible").should('have.length',4)     //4 tane resimli element belirmisti ca yazinca search kismina
-
         cy.get(':nth-child(2) > .product-action > button') .click()   //ca yazinca 2. elemntin--- add to cart
 //parent child chaining
         cy.get('.products').find('.product').should('have.length',4)  //cy.get('.products').find('.product')  4 pictures it has
@@ -15,6 +14,8 @@ describe('My test suit',function(){
 
 cy.get('.products').as('productLocater')   // cy.get('.products') get in icindeki locater a takma bir isim verdik , verilen isim onemli degil
 
+console.log('sf')  //browser console kismina yazar (non cypress item olunca)  //bunu cypress test runner a koymaz, cy ile baslamadigindan sequence islemini takmaz
+//cy.log() ile test runner da sonuc belirir
 cy.get('@productLocater').find('.product').eq(1).contains('ADD TO CART').click()   //index 0 dan basliyor  -- bu daha dynamic
 //cy butun sayfayi temsil ediyor
 
