@@ -32,7 +32,19 @@ cy.get('.products').find('.product').each(($el, index, $list)=> {
 
 
 })
+
+cy.get('.brand').then(function(logoelement){
+    cy.log(logoelement.text())
+
+})
+
+//const logo=cy.get('.brand')   //burda const deyince cy larin onundeki then gizli promisleri yok(yani senkronizasyon icin kafasi karisiyor ve hata veriyor cypress)
+//cy.log(logo.text())
      
+
+cy.log(cy.get('.brand').text()) // burdada text methodundan dolayi test runner  de sikinti olustu, cunku text() methodu cypress e ait degil , jquery methodu 
+
+//$ jquery e ait , bu ifadelerde text() methodunu kullanirsam sikinti olmaz , manuel then kullanmama gerek yok bu durumda
 
 
 
