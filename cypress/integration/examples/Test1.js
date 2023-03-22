@@ -13,13 +13,14 @@ describe('My test suit',function(){
         cy.get('.products').find('.product').should('have.length',4)  //cy.get('.products').find('.product')  4 pictures it has
 //find the second product in products when we write ca in box
 
+cy.get('.products').as('productLocater')   // cy.get('.products') get in icindeki locater a takma bir isim verdik , verilen isim onemli degil
 
-cy.get('.products').find('.product').eq(1).contains('ADD TO CART').click()   //index 0 dan basliyor  -- bu daha dynamic
+cy.get('@productLocater').find('.product').eq(1).contains('ADD TO CART').click()   //index 0 dan basliyor  -- bu daha dynamic
 //cy butun sayfayi temsil ediyor
 
 //i will iterate 4 products  , uzerinde cashews yazili olani bulup , add to cart yapacagim
 
-cy.get('.products').find('.product').each(($el, index, $list)=> {
+cy.get('@productLocater').find('.product').each(($el, index, $list)=> {
 
     const TestVegetables=$el.find('h4.product-name').text()
 
@@ -42,7 +43,7 @@ cy.get('.brand').then(function(logoelement){
 //cy.log(logo.text())
      
 
-cy.log(cy.get('.brand').text()) // burdada text methodundan dolayi test runner  de sikinti olustu, cunku text() methodu cypress e ait degil , jquery methodu 
+//cy.log(cy.get('.brand').text()) // burdada text methodundan dolayi test runner  de sikinti olustu, cunku text() methodu cypress e ait degil , jquery methodu 
 
 //$ jquery e ait , bu ifadelerde text() methodunu kullanirsam sikinti olmaz , manuel then kullanmama gerek yok bu durumda
 
