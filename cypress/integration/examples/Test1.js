@@ -35,10 +35,15 @@ cy.get('@productLocater').find('.product').each(($el, index, $list)=> {
 
 })
 
+
+
 cy.get('.brand').then(function(logoelement){
     cy.log(logoelement.text())
 
 })
+
+//assert if logo text is correctly displaced
+cy.get('.brand').should('have.text','GREENKART')
 
 //const logo=cy.get('.brand')   //burda const deyince cy larin onundeki then gizli promisleri yok(yani senkronizasyon icin kafasi karisiyor ve hata veriyor cypress)
 //cy.log(logo.text())
