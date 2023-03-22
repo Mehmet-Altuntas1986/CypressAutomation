@@ -10,13 +10,33 @@ describe('My test suit',function(){
 
         cy.get(':nth-child(2) > .product-action > button') .click()   //ca yazinca 2. elemntin--- add to cart
 //parent child chaining
-        cy.get('.products').find('.product').should('have.length',4)
+        cy.get('.products').find('.product').should('have.length',4)  //cy.get('.products').find('.product')  4 pictures it has
 //find the second product in products when we write ca in box
 
 
 cy.get('.products').find('.product').eq(1).contains('ADD TO CART').click()   //index 0 dan basliyor  -- bu daha dynamic
 //cy butun sayfayi temsil ediyor
-    })
 
-    
+//i will iterate 4 products  , uzerinde cashews yazili olani bulup , add to cart yapacagim
+
+cy.get('.products').find('.product').each(($el, index, $list)=> {
+
+    const TestVegetables=$el.find('h4.product-name').text()
+
+  if(TestVegetables.includes('Cashews'))   //cashews yazisinin oldugu scope taysak (o resmin icine geldik, artik bir tane button var o resmin html inde)    
+{
+        cy.wrap($el).find('button').click()     //each kullaniminda wrap() i kullan , boylece click gibi methodlari kullanabilirsin
+}
+
+//each in kullanimi icin uzerine mouse ile uzerine gel , websitesine bu sekilde ulasabilirsin
+
+
 })
+     
+
+
+
+})
+
+     })
+
