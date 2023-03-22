@@ -44,6 +44,9 @@ cy.get('.brand').then(function(logoelement){
 
 cy.log(cy.get('.brand').text()) // burdada text methodundan dolayi test runner  de sikinti olustu, cunku text() methodu cypress e ait degil , jquery methodu 
 
+//$ jquery e ait , bu ifadelerde text() methodunu kullanirsam sikinti olmaz , manuel then kullanmama gerek yok bu durumda
+
+
 
 })
 
