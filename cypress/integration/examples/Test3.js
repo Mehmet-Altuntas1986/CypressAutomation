@@ -21,7 +21,7 @@ describe('My test3 suit',function(){
        cy.get('#autocomplete').type('ind')
        cy.get('.ui-menu-item div').each(($el, index, $list) => { 
       if($el.text()==="India"){
-          cy.wrap($el).click()
+          cy.wrap($el).click()   //click icin wrap lazim jquery de
        }
        })
 
