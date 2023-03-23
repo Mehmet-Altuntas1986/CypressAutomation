@@ -35,7 +35,12 @@ describe('My test3 suit',function(){
     cy.get('#show-textbox').click()
     cy.get('#displayed-text').should('be.visible')  
 
-    
+    //radio buttons -- like check boxes test in cypress
+    cy.get('[value="radio2"]').check().should('be.checked')
+
+
+
+
 
 
 
