@@ -6,5 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
 specPattern:'/Users/mehmetaltuntas/cypress_automation/cypress/integration/examples/*.js'  //virgul ile farkli peroperties e2e objectine eklenebilir
-  },
+
+
+},
 });
