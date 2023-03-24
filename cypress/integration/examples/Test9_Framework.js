@@ -2,11 +2,17 @@
 ///<reference types="Cypress-iframe" />    //first we write in terminalto install    npm install -D cypress-iframe     then import this plug in into our test file
 import 'cypress-iframe'                    //then import this plug in into our test file
 describe('My test suit',function(){
+   
+  //Mocka , its methods are similar to test ng
+    before(function(){
+
+   })
+   
+   
+   
     it('my first test to visit a website',function(){
-       cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
- 
-
-
+       cy.visit('https://rahulshettyacademy.com/angularpractice/');
+       cy.get("input[name='name']:nth-child(2)")
 
 
 
