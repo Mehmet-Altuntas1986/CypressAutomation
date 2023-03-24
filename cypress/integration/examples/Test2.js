@@ -35,8 +35,8 @@ cy.get('@productLocater').find('.product').each(($el, index, $list)=> {
 
 })
 
-
-
+//Text is jquery object, we should resolve the promise (cy.get('.brand')) ,then we can use the text() method of jquery
+// bir isim verdik (GREENKART YAZSI ->logoelement ile kastettigimiz) -- cy.get('.brand') ile buldugumuz
 cy.get('.brand').then(function(logoelement){
    cy.log(logoelement.text())
 

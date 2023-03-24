@@ -36,7 +36,7 @@ cy.get('#opentab').invoke('removeAttr','target').click()
 //Turn back to the page before you click the button
 //https://docs.cypress.io/api/commands/go#docusaurus_skipToContent_fallback
 
-cy.go('back')
+cy.go('back')    //cy.go('forward')   bunlari cypress documentation da incele
    
 //how we will undestand that we are in the same page   ---with url change or not
 cy.url().should('include','rahulshettyacademy')
