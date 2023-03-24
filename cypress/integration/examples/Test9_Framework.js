@@ -3,7 +3,8 @@
 import 'cypress-iframe'                    //then import this plug in into our test file
 describe('My test suit',function(){
    
-   before(function(){
+  //Mocka , its methods are similar to test ng
+    before(function(){
 
    })
    
