@@ -24,29 +24,31 @@ const homePage=new HomePage()
              // cy.get("input[name='name']:nth-child(2)").type("Bob")
              // cy.get('select').select('Female')
 
-cy.get("input[name='name']:nth-child(2)").type(this.dt.name)  //this i kullandik, boylece cypress global data oldugunu anlayabildi
- cy.get('select').select(this.dt.gender) 
+homePage.getEditBox().type(this.dt.name)  //this i kullandik, boylece cypress global data oldugunu anlayabildi
+
+homePage.getGender().select(this.dt.gender) 
+homePage.getTwoWayDataBinding().should('have.value',this.dt.name)
      
-      //if you write anything in boxes , in the box elelment below ,it appears , lets check it cy.get('.ng-valid').should('have.value',this.dt.name)  //jquery deki have.value like text() methodu gibi calisir, text() methodu kullanilinca promise should be resolved with then , then can be used
+      //if you write anything in boxes , in the box element below ,it appears , lets check it cy.get('.ng-valid').should('have.value',this.dt.name)  //jquery deki have.value like text() methodu gibi calisir, text() methodu kullanilinca promise should be resolved with then , then can be used
 
       //box larin icinde en az 2 karakter yazilmali ,  html dom da minlength attribute vardi  
       // ve degeri 2 , jquery de herhangi bir attribute u ve degerini secmek
       //icin should('have.attr' , 'atributName','atributeValue')  
       
 
-   //   .should('have.attr','minlength','2')   //prop da kullanilabilir dedi ogretmen ,ama bu daha kolay  , test7 de
+    //  .should('have.attr','minlength','2')   //prop da kullanilabilir dedi ogretmen ,ama bu daha kolay  , test7 de
 
       //Entrepreneur (disabled) radio button check 
-cy.get('#inlineRadio3').should('be.disabled')   //devre disi
+homePage.EntrepreneaurRadioButton.should('be.disabled')   //devre disi
 
       //click shop button and see phones to buy    //bu line da  cy.pause   deseydim debugging yapmis olurdum , execution burda dururdi
-cy.get(':nth-child(2) > .nav-link').click()        //yada clickten sonra  .debug() deseydim yine debugging yapmis olurdum, execution burda dururdu
+homePage.getShopTab().click()        //yada clickten sonra  .debug() deseydim yine debugging yapmis olurdum, execution burda dururdu
 
 //fixtures da example.json file ina bazi kulanacagim datalari koydum , we bu class ta baglanti kurdum, simdi kullanalim
-this.dt.productName      //bring array in -- example.json-- in -- fixture-- folder of cypress
+this.dt.productName                       //bring productName array in the -- example.json-- in -- fixture-- folder of cypress
 this.dt.productName.forEach(element=>  
-    //ProductName arryindeki elmentler sirayla gelir , ve commands.js file ina koydugumuz  selectProduct method u ile run olur
-    cy.selectProduct(element)                     
+    cy.selectProduct(element)              //ProductName arrayindeki elmentler sirayla gelir , ve commands.js file ina koydugumuz  selectProduct method u ile run olur
+             
 )
 
 //simdi shop kismindaki telefon isimlerinin hepsini icine alacak bir locate ve onlari iteration ile bulma
@@ -59,7 +61,7 @@ if( $el.text().includes("Blackbery") ){
 }) 
      
 
-     //Simdi bu methodu  cypress-->support folder-->command config de olsuturalim ve cagiralim
+     //Simdi bu methodu  cypress-->support folder-->commands.js de olsuturalim ve cagiralim
      cy.selectProduct('Blackbery')
      cy.selectProduct('Nokia Edge')
 
