@@ -1,5 +1,5 @@
-class ProductsPage{ 
+class productsPage{ 
 
     
 }
-export default ProductsPage;
+export default productsPage;

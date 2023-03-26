@@ -1,7 +1,8 @@
-///<reference types="cypress"/>            //when i add this here, cy. ile inteligently reach methods
-///<reference types="Cypress-iframe" />    //first we write in terminalto install    npm install -D cypress-iframe     then import this plug in into our test file
-import 'cypress-iframe'                    //then import this plug in into our test file
-import HomePage from '../pageObjects/HomePage'     //  ../  parent folder i temsil ediyor , yani integration folder
+///<reference types="cypress"/>                           //when i add this here, cy. ile inteligently reach methods
+///<reference types="Cypress-iframe" />                   //first we write in terminalto install    npm install -D cypress-iframe     then import this plug in into our test file
+import 'cypress-iframe'                                   //then import this plug in into our test file
+import homePage from '../pageObjects/HomePage'    //  ../  parent folder i temsil ediyor , yani integration folder
+import productsPage from '../pageObjects/ProductsPage'
 describe('My test suit',function(){
    
   //Mocka , its methods are similar to test ng
@@ -16,18 +17,17 @@ describe('My test suit',function(){
   //example.json icerisine koydugun verilere dikkat et, case sensitive. Ex: Female yerine female yazsan test basarisiz olur 
    
 it('my first test to visit a website',function(){
-//create an object from HomePage , and store it in a variable
-const homePage=new HomePage()
+const HomePage=new homePage()//create an object from HomePage , and store it in a variable
+const ProductsPage=new productsPage()
 
 
     cy.visit('https://rahulshettyacademy.com/angularpractice/');
              // cy.get("input[name='name']:nth-child(2)").type("Bob")
              // cy.get('select').select('Female')
 
-homePage.getEditBox().type(this.dt.name)  //this i kullandik, boylece cypress global data oldugunu anlayabildi
-
-homePage.getGender().select(this.dt.gender) 
-homePage.getTwoWayDataBinding().should('have.value',this.dt.name)
+             HomePage.getEditBox().type(this.dt.name)  //this i kullandik, boylece cypress global data oldugunu anlayabildi
+             HomePage.getTwoWayDataBinding().should('have.value',this.dt.name)
+             HomePage.getGender().select(this.dt.gender) 
      
       //if you write anything in boxes , in the box element below ,it appears , lets check it cy.get('.ng-valid').should('have.value',this.dt.name)  //jquery deki have.value like text() methodu gibi calisir, text() methodu kullanilinca promise should be resolved with then , then can be used
 
@@ -39,10 +39,10 @@ homePage.getTwoWayDataBinding().should('have.value',this.dt.name)
     //  .should('have.attr','minlength','2')   //prop da kullanilabilir dedi ogretmen ,ama bu daha kolay  , test7 de
 
       //Entrepreneur (disabled) radio button check 
-homePage.EntrepreneaurRadioButton.should('be.disabled')   //devre disi
+      HomePage.EntrepreneaurRadioButton.should('be.disabled')   //devre disi
 
       //click shop button and see phones to buy    //bu line da  cy.pause   deseydim debugging yapmis olurdum , execution burda dururdi
-homePage.getShopTab().click()        //yada clickten sonra  .debug() deseydim yine debugging yapmis olurdum, execution burda dururdu
+      HomePage.getShopTab().click()        //yada clickten sonra  .debug() deseydim yine debugging yapmis olurdum, execution burda dururdu
 
 //fixtures da example.json file ina bazi kulanacagim datalari koydum , we bu class ta baglanti kurdum, simdi kullanalim
 this.dt.productName                       //bring productName array in the -- example.json-- in -- fixture-- folder of cypress

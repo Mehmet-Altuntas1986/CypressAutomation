@@ -17,7 +17,7 @@ describe('My test suit',function(){
    
 it('my first test to visit a website',function(){
 //create an object from HomePage , and store it in a variable
-const homePage=new HomePage()
+const HomePage=new HomePage()
 
 
     cy.visit('https://rahulshettyacademy.com/angularpractice/');
