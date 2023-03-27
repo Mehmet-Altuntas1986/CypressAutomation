@@ -1,8 +1,8 @@
 class homePage{
 
-    getEditBox(){
+    getNameBox(){
         
-          return cy.get("input[name='name']:nth-child(2)")
+          return cy.get("div[class='form-group'] input[name='name']")
     }
     
     
@@ -11,8 +11,8 @@ class homePage{
     }
     
     
-    getEditBox(){
-    return cy.get("input[name='name']:nth-child(2)")
+    getEmailBox(){
+    return cy.get("input[name='email']")
     }
     
     getGender()
