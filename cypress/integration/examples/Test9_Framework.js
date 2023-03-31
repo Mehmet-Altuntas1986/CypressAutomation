@@ -34,7 +34,7 @@ cy.get("input[name='name']:nth-child(2)").type(this.dt.name)  //this i kullandik
       //icin should('have.attr' , 'atributName','atributeValue')  
       
 
-   //   .should('have.attr','minlength','2')   //prop da kullanilabilir dedi ogretmen ,ama bu daha kolay  , test7 de
+      .should('have.attr','minlength','2')   //prop da kullanilabilir dedi ogretmen ,ama bu daha kolay  , test7 de
 
       //Entrepreneur (disabled) radio button check 
 cy.get('#inlineRadio3').should('be.disabled')   //devre disi
@@ -68,9 +68,6 @@ if( $el.text().includes("Blackbery") ){
 
 
 //notes
-
-//We will change this test page to page object design pattern to test
-
 
 //java script syntax foreach method usage
 const array1 = ['a', 'b', 'c'];

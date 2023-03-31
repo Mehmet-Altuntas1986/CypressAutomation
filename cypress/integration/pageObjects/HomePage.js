@@ -41,4 +41,7 @@ class HomePage{
     
     //export class to make it available to use in other files of our project
     //bu class is not related to cypress , that is why , we should inport it in the testpages
+    
     export default HomePage;
+
+
