@@ -1,7 +1,7 @@
 ///<reference types="cypress"/>            //when i add this here, cy. ile inteligently reach methods
 ///<reference types="Cypress-iframe" />    //first we write in terminalto install    npm install -D cypress-iframe     then import this plug in into our test file
 import 'cypress-iframe'                    //then import this plug in into our test file
-import HomePage from '../pageObjects/HomePage'     //  ../  parent folder i temsil ediyor , yani integration folder
+import homePage from '../pageObjects/HomePage'     //  ../  parent folder i temsil ediyor , yani integration folder
 describe('My test suit',function(){
    
   //Mocka , its methods are similar to test ng
@@ -17,7 +17,7 @@ describe('My test suit',function(){
    
 it('my first test to visit a website',function(){
 //create an object from HomePage , and store it in a variable
-const HomePage=new HomePage()
+const HomePage=new homePage()
 
 
     cy.visit('https://rahulshettyacademy.com/angularpractice/');
